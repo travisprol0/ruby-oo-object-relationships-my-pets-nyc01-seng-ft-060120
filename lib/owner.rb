@@ -32,7 +32,7 @@ class Owner
     @@all.clear
   end
 
-  def cats
+  def cats 
     Cat.all.select do |cat|
       cat.owner == self 
     end 
@@ -60,13 +60,20 @@ class Owner
     self.cats.each {|cat| cat.mood = "happy"}
   end 
 
-  def sell_pets(pet)
-    self.mood = nervous
-    #if Cats.all.owner = nil
-      #self.cats.each {|cat| cat.mood = "nervous"}
-    #elsif Dogs.all.owner = nil
-      #self.dogs.each {|dog| dog.mood = "nervous"}
-   # end 
+  def sell_pets
+    pets = Dog.all + Cat.all 
+    pets.each do |pet|
+      pet.mood = "nervous"
+      pet.owner = nil
+    end 
   end 
+
+  def list_pets
+    #dogs
+    #cats
+    "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)." 
+  end 
+  #binding.pry 
+
 end
 
