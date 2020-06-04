@@ -1,3 +1,4 @@
+#require 'pry'
 class Cat
   
   attr_reader :name
@@ -15,5 +16,6 @@ class Cat
   def self.all
     @@all
   end
-  
 end
+
+#binding.pry 
